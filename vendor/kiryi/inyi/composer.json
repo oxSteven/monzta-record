@@ -1,0 +1,22 @@
+{
+    "name": "kiryi/inyi",
+    "description": "Simple INI file reader.",
+    "type": "library",
+    "homepage": "https://kiryi.net/",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Kiryi",
+            "email": "dev@kiryi.net"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "kiryi/pathyi": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kiryi\\Inyi\\": "src/"
+        }
+    }
+}

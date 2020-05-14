@@ -1,0 +1,14 @@
+[
+    {
+        "id": "recordListHeader",
+        "type": "center",
+        "color": {
+            "font": "#fff",
+            "background": "#4db6ac"
+        },
+        "image": {
+            "file": "logoSmall.png",
+            "altText": "Logo"
+        }
+    }
+]

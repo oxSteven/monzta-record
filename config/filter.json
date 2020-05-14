@@ -1,0 +1,108 @@
+{
+    "region": [
+        {
+            "ident": "de",
+            "name": "DE"
+        },
+        {
+            "ident": "us",
+            "name": "US"
+        },
+        {
+            "ident": "en",
+            "name": "EN"
+        },
+        {
+            "ident": "fr",
+            "name": "FR"
+        }
+    ],
+    "class": [
+        {
+            "ident": "knight",
+            "name": "Knight"
+        },
+        {
+            "ident": "blade",
+            "name": "Blade"
+        },
+        {
+            "ident": "billposter",
+            "name": "Billposter"
+        },
+        {
+            "ident": "ringmaster",
+            "name": "Ringmaster"
+        },
+        {
+            "ident": "elementor",
+            "name": "Elementor"
+        },
+        {
+            "ident": "psykeeper",
+            "name": "Psykeeper"
+        },
+        {
+            "ident": "jester",
+            "name": "Jester"
+        },
+        {
+            "ident": "ranger",
+            "name": "Ranger"
+        }
+    ],
+    "tags": [
+        {
+            "ident": "speedrun",
+            "name": "Speedrun"
+        },
+        {
+            "ident": "dmg",
+            "name": "Damage"
+        },
+        {
+            "ident": "str",
+            "name": "STR"
+        },
+        {
+            "ident": "sta",
+            "name": "STA"
+        },
+        {
+            "ident": "dex",
+            "name": "DEX"
+        },
+        {
+            "ident": "int",
+            "name": "INT"
+        },
+        {
+            "ident": "atk",
+            "name": "Attack"
+        },
+        {
+            "ident": "def",
+            "name": "Defense"
+        },
+        {
+            "ident": "hp",
+            "name": "HP"
+        },
+        {
+            "ident": "mp",
+            "name": "MP"
+        },
+        {
+            "ident": "fp",
+            "name": "FP"
+        },
+        {
+            "ident": "speed",
+            "name": "Speed"
+        },
+        {
+            "ident": "misc",
+            "name": "Miscellaneous"
+        }
+    ]
+}

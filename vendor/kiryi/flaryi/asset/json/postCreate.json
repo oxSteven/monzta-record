@@ -1,0 +1,22 @@
+{
+    "data": {
+        "type": "posts",
+        "attributes": {
+            "content": "%s"
+        },
+        "relationships": {
+            "user": {
+                "data": {
+                    "type": "users",
+                    "id": "%d"
+                }
+            },
+            "discussion": {
+                "data": {
+                    "type": "discussions",
+                    "id": "%d"
+                }
+            }
+        }
+    }
+}

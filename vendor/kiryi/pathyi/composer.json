@@ -1,0 +1,21 @@
+{
+    "name": "kiryi/pathyi",
+    "description": "Simple path formatter.",
+    "type": "library",
+    "homepage": "https://kiryi.net/",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Kiryi",
+            "email": "dev@kiryi.net"
+        }
+    ],
+    "require": {
+        "php": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kiryi\\Pathyi\\": "src/"
+        }
+    }
+}

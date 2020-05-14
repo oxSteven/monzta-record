@@ -1,0 +1,11 @@
+{
+    "data": {
+        "relationships": {
+            "groups": {
+                "data": [
+                    %s
+                ]
+            }
+        }
+    }
+}

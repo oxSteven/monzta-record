@@ -1,0 +1,6 @@
+[viewyi]
+baseUrl = {YOURBASEURL}
+imagePath = {YOURIMAGEDIRECTORYPATH}
+templateDirectory = {YOURTEMPLATEDIRECTORYPATH}
+templateFileExtension = {YOURFILEEXTENSION}
+imageDirectory = {YOURIMAGEDIRECTORY}

@@ -1,0 +1,17 @@
+[
+    {
+        "type": "center",
+        "color": {
+            "background": "#eceff1"
+        },
+        "text": "homeGuidelinesHeader",
+        "image": {
+            "file": "guidelines.png",
+            "altText": "Guidelines Icon"
+        }
+    },
+    {
+        "type": "normal",
+        "text": "homeGuidelinesContent"
+    }
+]

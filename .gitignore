@@ -1,0 +1,13 @@
+/asset/css/
+/asset/img/
+/public/.htaccess
+/public/.htaccess.live
+/public/.htaccess.test
+/config/routyi.ini
+/config/viewyi.ini
+/config/viewyi.ini.live
+/config/viewyi.ini.test
+/config/flaryi.ini
+/config/flaryi.ini.live
+/config/flaryi.ini.test
+/cache/records.json

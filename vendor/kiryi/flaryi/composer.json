@@ -1,0 +1,24 @@
+{
+    "name": "kiryi/flaryi",
+    "description": "Flarum API Client.",
+    "type": "library",
+    "homepage": "https://kiryi.net/",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Kiryi",
+            "email": "dev@kiryi.net"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "kiryi/pathyi": "^1.0",
+        "kiryi/inyi": "^1.0",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kiryi\\Flaryi\\": "src/"
+        }
+    }
+}

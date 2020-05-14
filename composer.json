@@ -1,0 +1,25 @@
+{
+    "name": "kiryi/monzta-record",
+    "description": "Official MONZTArecord Webpage.",
+    "type": "project",
+    "homepage": "https://kiryi.net/",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Kiryi",
+            "email": "dev@kiryi.net"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Kiryi\\MonztaRecord\\": "src/"
+        }
+    },
+    "require": {
+        "kiryi/routyi": "^1.0",
+        "kiryi/viewyi": "^1.1",
+        "kiryi/pagyi": "^1.0",
+        "kiryi/flaryi": "^1.1",
+        "kiryi/pathyi": "^1.0"
+    }
+}
