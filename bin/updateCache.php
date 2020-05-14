@@ -2,4 +2,4 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-(new Kiryi\MonztaRecord\Helper\CacheHandler)->updateCache();
+(new Kiryi\MonztaRecord\Helper\CacheHandler)->verifyCacheLife();

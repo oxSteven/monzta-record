@@ -23,9 +23,18 @@ class CacheHandler extends Exception
     public function getCachedData(): array
     {
 		if (file_exists($this::CACHEFILE) === false) {
-			exec('php ' . $this::CACHEUPDATESCRIPT . ' &');
-
 			throw new Exception(sprintf($this::ERRORMSG, 11));
+		}
+		
+		$cache = $this->readCache();
+
+		return $cache->data;
+	}
+
+	public function verifyCacheLife(): void
+	{
+		if (file_exists($this::CACHEFILE) === false) {
+			$this->updateCache();
 		} else {
 			$cache = $this->readCache();
 
@@ -33,26 +42,19 @@ class CacheHandler extends Exception
 				$cache->state->updating === false
 				&& $cache->state->lastUpdateTimestamp + $this::CACHELIFETIME < time()
 			) {
-				exec('php ' . $this::CACHEUPDATESCRIPT . ' &');
+				$cache->state->updating = true;
+				$this->writeCache($cache);
+				
+				$this->updateCache();
 			}
 		}
-
-		$cache = $this->readCache();
-
-		return $cache->data;
 	}
 	
-	public function updateCache(): void
+	private function updateCache(): void
 	{
-		if (file_exists($this::CACHEFILE) === true) {
-			$cache = $this->readCache();
-			$cache->state->updating = true;
-			$this->writeCache($cache);
-		}
-		
 		$time = time();
 
-		$cacheNew = [
+		$cacheData = [
 			'state' => [
 				'updating' => false,
 				'lastUpdate' => date('Y-m-d H:i:s', $time),
@@ -61,7 +63,7 @@ class CacheHandler extends Exception
 			'data' => $this->getRecords(),
 		];
 
-		$this->writeCache($cacheNew);
+		$this->writeCache($cacheData);
 	}
 
 
