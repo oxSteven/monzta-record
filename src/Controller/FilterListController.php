@@ -69,11 +69,7 @@ class FilterListController
 		if (strpos($uri, '/list') === false) {
 			$uri = '/list/';
 		}
-
-		/*  !!! TESTING ONLY !!! */
-		$uri =  str_replace('monzta-record/public/', '', $uri);
-		/*  !!! TESTING ONLY END !!! */
-
+		
 		return $uri;
 	}
 }

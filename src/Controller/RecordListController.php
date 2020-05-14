@@ -11,8 +11,7 @@ use Kiryi\Viewyi\Engine as Viewyi;
 
 class RecordListController implements EndpointInterface
 {
-	const SUBMITLINK = 'http://localhost/mztfrm/devforum-monzta-net/public/d/';
-	//const DISCUSSIONLINK = 'https://forum.monzta.net/d/';
+	const SUBMITLINK = 'https://forum.monzta.net/d/';
 
 	private array $params = [];
 
