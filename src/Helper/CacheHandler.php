@@ -13,7 +13,7 @@ class CacheHandler extends Exception
 	const CACHEUPDATESCRIPT = __DIR__ . '/../../bin/updateCache.php';
 	const CACHELIFETIME = 60 * 60 * 6;
 
-	private ?Flaryi $client = null;
+	private Flaryi $client;
 	
 	public function __construct()
 	{
@@ -23,7 +23,7 @@ class CacheHandler extends Exception
     public function getCachedData(): array
     {
 		if (file_exists($this::CACHEFILE) === false) {
-			exec('nohup php ' . $this::CACHEUPDATESCRIPT . ' &');
+			exec('php ' . $this::CACHEUPDATESCRIPT . ' &');
 
 			throw new Exception(sprintf($this::ERRORMSG, 11));
 		} else {
@@ -33,7 +33,7 @@ class CacheHandler extends Exception
 				$cache->state->updating === false
 				&& $cache->state->lastUpdateTimestamp + $this::CACHELIFETIME < time()
 			) {
-				exec('nohup php ' . $this::CACHEUPDATESCRIPT . ' &');
+				exec('php ' . $this::CACHEUPDATESCRIPT . ' &');
 			}
 		}
 
