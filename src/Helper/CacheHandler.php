@@ -13,7 +13,7 @@ class CacheHandler extends Exception
 	const CACHEUPDATESCRIPT = __DIR__ . '/../../bin/updateCache.php';
 	const CACHELIFETIME = 60 * 60 * 6;
 
-	private Flaryi $client;
+	private $client;
 	
 	public function __construct()
 	{
