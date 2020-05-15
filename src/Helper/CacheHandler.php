@@ -22,10 +22,6 @@ class CacheHandler extends Exception
 
     public function getCachedData(): array
     {
-		if (file_exists($this::CACHEFILE) === false) {
-			throw new Exception(sprintf($this::ERRORMSG, 11));
-		}
-		
 		$cache = $this->readCache();
 
 		return $cache->data;
@@ -69,7 +65,17 @@ class CacheHandler extends Exception
 
 	private function readCache(): object
 	{
-		return json_decode(file_get_contents($this::CACHEFILE));
+		if (file_exists($this::CACHEFILE) === false) {
+			throw new Exception(sprintf($this::ERRORMSG, 1));
+		} else {
+			$cache = json_decode(file_get_contents($this::CACHEFILE));
+
+			if (count($cache) <= 0) {
+				throw new Exception(sprintf($this::ERRORMSG, 2));
+			} else {
+				return $cache;
+			}
+		}
 	}
 
 	private function writeCache(array $data): void
