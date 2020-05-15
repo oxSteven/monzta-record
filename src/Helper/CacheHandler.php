@@ -59,7 +59,7 @@ class CacheHandler extends Exception
 			'data' => $this->getRecords(),
 		];
 
-		$this->writeCache($cacheData);
+		$this->writeCache((object) $cacheData);
 	}
 
 
@@ -70,7 +70,7 @@ class CacheHandler extends Exception
 		} else {
 			$cache = json_decode(file_get_contents($this::CACHEFILE));
 
-			if (count($cache) <= 0) {
+			if (count($cache->data) <= 0) {
 				throw new Exception(sprintf($this::ERRORMSG, 2));
 			} else {
 				return $cache;
@@ -78,9 +78,9 @@ class CacheHandler extends Exception
 		}
 	}
 
-	private function writeCache(array $data): void
+	private function writeCache(object $cache): void
 	{
-		file_put_contents($this::CACHEFILE, json_encode($data));
+		file_put_contents($this::CACHEFILE, json_encode($cache));
 	}
     
     private function getRecords(): array
