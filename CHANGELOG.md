@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `FilterHandler` handles the selected filters.
 - `FilterListReader` reads the filter list configuration.
 - `TagListReader` reads the tag list configuration.
+- `CacheUpdateCaller` called by AJAX to verify cache lifetime.
 - `Record` represents a record entry.
 - `Bootstrap` bootstraps the page.
 - `head.tpl` HTML head element.
