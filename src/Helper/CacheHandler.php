@@ -29,16 +29,20 @@ class CacheHandler extends Exception
 
 	public function verifyCacheLife(): void
 	{
-		$cache = $this->readCache();
-
-		if (
-			$cache->state->updating === false
-			&& $cache->state->lastUpdateTimestamp + $this::CACHELIFETIME < time()
-		) {
-			$cache->state->updating = true;
-			$this->writeCache($cache);
-			
+		if (file_exists($this::CACHEFILE) === false) {
 			$this->updateCache();
+		} else {
+			$cache = $this->readCache();
+
+			if (
+				$cache->state->updating === false
+				&& $cache->state->lastUpdateTimestamp + $this::CACHELIFETIME < time()
+			) {
+				$cache->state->updating = true;
+				$this->writeCache($cache);
+				
+				$this->updateCache();
+			}
 		}
 	}
 	
@@ -57,8 +61,7 @@ class CacheHandler extends Exception
 
 		$this->writeCache((object) $cacheData);
 	}
-
-
+	
 	private function readCache(): object
 	{
 		if (file_exists($this::CACHEFILE) === false) {
