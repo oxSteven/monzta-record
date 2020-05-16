@@ -21,3 +21,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `recordList.tpl` record list layout.
 - `content.tpl` content section with main end.
 - `footer.tpl` shared footer used on most MONZTAnetwork pages.
+- `callCacheVerification.js` AJAX call to update cache.
