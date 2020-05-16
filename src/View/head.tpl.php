@@ -2,4 +2,4 @@
 <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins&display=swap' />
 <link rel='stylesheet' href='<?=$a?>style.min.css' />
 <link rel='icon' type='image/png' href='<?=$i?>favicon.png' />
-<script src='script.min.js'></script>
+<script src='<?=$a?>script.min.js'></script>
