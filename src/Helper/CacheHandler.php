@@ -117,7 +117,7 @@ class CacheHandler extends Exception
 	private function getDiscussions(): array
     {
 		$fields = ['firstPost', 'tags'];
-        $filter = 'tag:record';
+        $filter = 'tag:record tag:de tag:Billposter';
 
 		$discussions = [];
 
