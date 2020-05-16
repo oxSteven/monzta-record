@@ -7,12 +7,30 @@ use Kiryi\MonztaRecord\Helper\TagListReader;
 class Record
 {
     const CONTENTSTRUCTURE = [
-        ['name', '## '],
-        ['region', '**Region:** '],
-        ['class', '**Class:** '],
-        ['holder', '**Record Holder:** '],
-        ['value', '**Record Value:** '],
-        ['proof', '**Proof:** '],
+        [
+            'name' => 'name',
+            'content' => '## ',
+        ],
+        [
+            'name' => 'region',
+            'content' => '**Region:** ',
+        ],
+        [
+            'name' => 'class',
+            'content' => '**Class:** ',
+        ],
+        [
+            'name' => 'holder',
+            'content' => '**Record Holder:** ',
+        ],
+        [
+            'name' => 'value',
+            'content' => '**Record Value:** ',
+        ],
+        [
+            'name' => 'proof',
+            'content' => '**Proof:** ',
+        ],
     ];
 
     private int $id = 0;
@@ -30,12 +48,16 @@ class Record
         $this->setTags($data['tags']);
 
         $content = preg_split('/\n/', $data['content']);
-
-        for ($i = 0; $i < count($content); $i++) {
-            $content[$i] = str_replace($this::CONTENTSTRUCTURE[$i][1], '', $content[$i]);
-            $setterName = 'set' . $this::CONTENTSTRUCTURE[$i][0];
-            
-            $this->$setterName($content[$i]);
+        
+        foreach ($content as $value) {
+            foreach ($this::CONTENTSTRUCTURE as $property) {
+                if (strpos($value, $property['content']) !== false) {
+                    $value = str_replace($property['content'], '', $value);
+                    $setterName = 'set' . $property['name'];
+                
+                    $this->$setterName($value);
+                }
+            }
         }
     }
 
