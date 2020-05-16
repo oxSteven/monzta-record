@@ -13,7 +13,7 @@
                 <?php if ($record->class != '') : ?>
                 <div title='Class: <?=$record->class?>'><img src='<?=$i?>class<?=$record->class?>.png' /></div>
                 <?php endif; ?>
-                <div title='Region: <?=$record->region?>'><?=$record->region?></div>
+                <div class='region' title='Region: <?=$record->region?>'><?=$record->region?></div>
                 <?php if ($record->proof != '') : ?>
                 <a href='<?=$record->proof?>' title='See Proof'><img src='<?=$i?>proof.png' /></a>
                 <?php else : ?>
