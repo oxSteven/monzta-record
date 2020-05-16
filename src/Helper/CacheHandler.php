@@ -48,8 +48,6 @@ class CacheHandler extends Exception
 	
 	private function updateCache(): void
 	{
-		try {
-			throw new Exception('asd');
 		$time = time();
 
 		$cacheData = [
@@ -62,10 +60,6 @@ class CacheHandler extends Exception
 		];
 
 		$this->writeCache((object) $cacheData);
-throw new Exception('qwe');
-		} catch (Exception $e) {
-			error_log($e, 3, 'log.txt');
-		}
 	}
 
 
