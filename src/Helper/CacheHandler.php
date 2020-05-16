@@ -11,7 +11,7 @@ class CacheHandler extends Exception
 	const ERRORMSG = 'MONZTArecord DATA ERROR [Code %d]: Unable to receive data. Please inform administrator.';
 	const CACHEFILE = __DIR__ . '/../../cache/records.json';
 	const CACHEUPDATESCRIPT = __DIR__ . '/../../bin/updateCache.php';
-	const CACHELIFETIME = 60 * 60 * 3;
+	const CACHELIFETIME = 3;
 
 	private ?Flaryi $client = null;
 	
