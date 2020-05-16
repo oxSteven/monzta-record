@@ -49,6 +49,7 @@ class CacheHandler extends Exception
 	private function updateCache(): void
 	{
 		try {
+			throw new Exception('asd');
 		$time = time();
 
 		$cacheData = [
