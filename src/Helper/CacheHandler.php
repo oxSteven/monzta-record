@@ -22,6 +22,10 @@ class CacheHandler extends Exception
 
     public function getCachedData(): array
     {
+		if (file_exists($this::CACHEFILE) === false) {
+			$this->updateCache();
+		}
+		
 		$cache = $this->readCache();
 
 		return $cache->data;
