@@ -15,7 +15,7 @@
                 <?php endif; ?>
                 <div class='region' title='Region: <?=$record->region?>'><?=$record->region?></div>
                 <?php if ($record->proof != '') : ?>
-                <a href='<?=$record->proof?>' title='See Proof'><img src='<?=$i?>proof.png' /></a>
+                <a href='<?=$record->proof?>' title='See Proof' target='_blank'><img src='<?=$i?>proof.png' /></a>
                 <?php else : ?>
                 <div title='No Record'><img src='<?=$i?>proof.png' /></div>
                 <?php endif; ?>
