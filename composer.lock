@@ -321,16 +321,16 @@
         },
         {
             "name": "kiryi/pagyi",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KiryiMONZTA/pagyi.git",
-                "reference": "97bb51c8133fc8d02b5e72fa03c96fa269761ed5"
+                "reference": "1693e5970c7f68a30beeabf0e704bc016aa49c49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KiryiMONZTA/pagyi/zipball/97bb51c8133fc8d02b5e72fa03c96fa269761ed5",
-                "reference": "97bb51c8133fc8d02b5e72fa03c96fa269761ed5",
+                "url": "https://api.github.com/repos/KiryiMONZTA/pagyi/zipball/1693e5970c7f68a30beeabf0e704bc016aa49c49",
+                "reference": "1693e5970c7f68a30beeabf0e704bc016aa49c49",
                 "shasum": ""
             },
             "require": {
@@ -358,7 +358,7 @@
             ],
             "description": "Page builder using a JSON configuration file and Markdown texts",
             "homepage": "https://kiryi.net/",
-            "time": "2020-04-26T16:23:22+00:00"
+            "time": "2020-05-17T13:10:06+00:00"
         },
         {
             "name": "kiryi/pathyi",
