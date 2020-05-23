@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.3] - 2020-05-23
+### Fixed
+- Improved texts.
+
 ## [1.0.2] - 2020-05-17
 ### Changed
 - Updated to PAGYI 1.0.2.

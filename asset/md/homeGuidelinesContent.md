@@ -5,8 +5,8 @@
 
 ### Screenshot and Video Requirements
 - Screenshots must be full-sized
-- Videos should show the record without to much editing (e.g. add a clear replay)
-- The status (H) or messenger (E) window musst be visible
+- Videos should show the record without too much editing (e.g. add a clear replay)
+- The status (H) or messenger (E) window must be visible
 - Censoring should be as small as possible
 - Censor only with colored rectangles
 - Well-known players support the plausibility
