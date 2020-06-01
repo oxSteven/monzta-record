@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.4] - 2020-06-01
+### Changed
+- `filter.json` filter configuration.
+- `FilterHandler` new filter group added.
+
 ## [1.0.3] - 2020-05-23
 ### Fixed
 - Improved texts.

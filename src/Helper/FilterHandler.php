@@ -22,7 +22,16 @@ class FilterHandler
         }
     }
 
-    public function filterTags(string $filter, object $record): bool
+    public function filterType(string $filter, object $record): bool
+    {
+        if (in_array($filter, $record->tags)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+ 
+    public function filterOther(string $filter, object $record): bool
     {
         if (in_array($filter, $record->tags)) {
             return true;

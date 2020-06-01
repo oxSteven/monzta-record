@@ -51,15 +51,25 @@
             "name": "Ranger"
         }
     ],
-    "tags": [
+    "type": [
+        {
+            "ident": "dmg",
+            "name": "Damage"
+        },
+        {
+            "ident": "stats",
+            "name": "Stats"
+        },
         {
             "ident": "speedrun",
             "name": "Speedrun"
         },
         {
-            "ident": "dmg",
-            "name": "Damage"
-        },
+            "ident": "misc",
+            "name": "Miscellaneous"
+        }
+    ],
+    "other": [
         {
             "ident": "str",
             "name": "STR"
@@ -101,8 +111,20 @@
             "name": "Speed"
         },
         {
-            "ident": "misc",
-            "name": "Miscellaneous"
+            "ident": "pvp",
+            "name": "PvP"
+        },
+        {
+            "ident": "pve",
+            "name": "PvE"
+        },
+        {
+            "ident": "guilde-siege",
+            "name": "Guild Siege"
+        },
+        {
+            "ident": "secret-room",
+            "name": "Secret Room"
         }
     ]
 }
