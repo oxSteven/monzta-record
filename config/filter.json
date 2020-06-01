@@ -117,14 +117,6 @@
         {
             "ident": "pve",
             "name": "PvE"
-        },
-        {
-            "ident": "guild-siege",
-            "name": "Guild Siege"
-        },
-        {
-            "ident": "secret-room",
-            "name": "Secret Room"
         }
     ]
 }

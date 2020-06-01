@@ -6,10 +6,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.5] - 2020-06-01
-### Fixed
-- `filter.json` wrong spelling of *guild*.
-
 ## [1.0.4] - 2020-06-01
 ### Changed
 - `filter.json` filter configuration.
