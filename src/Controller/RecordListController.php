@@ -40,7 +40,7 @@ class RecordListController implements EndpointInterface
 	{
 		$filterHandler = new FilterHandler();
 		$currentFilterList = $this->getCurrentFilters();
-		$fullRecordList = (new CacheHandler)->getCachedData();
+		$fullRecordList = (new CacheHandler)->getRecords();
 		$filteredRecordList = [];
 		
 		foreach ($fullRecordList as $record) {
