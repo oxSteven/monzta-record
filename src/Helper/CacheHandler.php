@@ -8,9 +8,9 @@ use Exception;
 
 class CacheHandler extends Exception
 {
-	const ERRORMSG = 'MONZTArecord DATA ERROR [Code %d]: Unable to receive data. Please inform administrator.';
 	const CACHEFILE = __DIR__ . '/../../cache/records.json';
-	const CACHELIFETIME = 60 * 60 * 3;
+	const CACHELIFETIME = 60 * 60 * 24;
+	const EXECUTIONTIMELIMIT = 60 * 10;
 
 	private ?Flaryi $client = null;
 	
@@ -19,105 +19,50 @@ class CacheHandler extends Exception
 		$this->client = new Flaryi();
 	}
 
-    public function getCachedData(): array
+    public function getRecords(): array
     {
-		$cache = $this->readCache();
-
-		return $cache->data;
-	}
-
-	public function verifyCacheLife(): void
-	{
 		if (file_exists($this::CACHEFILE) === false) {
-			$this->updateCache();
+			set_time_limit($this::EXECUTIONTIMELIMIT);
+			$this->fetchRecords(true);
+			return $this->readCache();
+		} elseif (filemtime($this::CACHEFILE) < (time() - $this::CACHELIFETIME)) {
+			$this->fetchRecords();
+			return $this->readCache();
 		} else {
-			$cache = $this->readCache();
-
-			if (
-				$cache->state->updating === false
-				&& $cache->state->lastUpdateTimestamp + $this::CACHELIFETIME < time()
-			) {
-				$cache->state->updating = true;
-				$this->writeCache($cache);
-				
-				$this->updateCache();
-			}
+			return $this->readCache();
 		}
 	}
-	
-	private function updateCache(): void
+
+	private function readCache(): array
 	{
-		$time = time();
-
-		$cacheData = [
-			'state' => [
-				'updating' => false,
-				'lastUpdate' => date('Y-m-d H:i:s', $time),
-				'lastUpdateTimestamp' => $time,
-			],
-			'data' => $this->getRecords(),
-		];
-
-		$this->writeCache((object) $cacheData);
+		return json_decode(file_get_contents($this::CACHEFILE));
 	}
-	
-	private function readCache(): object
+
+	private function writeCache(array $newRecords, bool $update = true): void
 	{
-		if (file_exists($this::CACHEFILE) === false) {
-			throw new Exception(sprintf($this::ERRORMSG, 1));
+		if ($update === true) {
+			$cachedRecords = $this->readCache();
+			
+			foreach ($cachedRecords as $key => $cachedRecord) {
+				foreach ($newRecords as $newRecord) {
+					if ($cachedRecord->id == $newRecord['id']) {
+						$cachedRecords[$key] = $newRecord;
+					}
+				}
+			}
 		} else {
-			$cache = json_decode(file_get_contents($this::CACHEFILE));
-
-			if (count($cache->data) <= 0) {
-				throw new Exception(sprintf($this::ERRORMSG, 2));
-			} else {
-				return $cache;
-			}
-		}
-	}
-
-	private function writeCache(object $cache): void
-	{
-		file_put_contents($this::CACHEFILE, json_encode($cache));
-	}
-    
-    private function getRecords(): array
-	{
-		$records = [];
-		$posts = $this->getPosts();
-
-		foreach ($posts as $post) {
-			$record = new Record($post);
-			$records[] = $record->getProperties();
-		}
-
-		return $records;
-	}
-
-	private function getPosts(): array
-	{
-		$posts = [];
-		$fields = ['content'];
-
-		foreach ($this->getDiscussions() as $discussion) {			
-			$post = $this->client->call('Post')->get($discussion['postId'], $fields);
-
-			$posts[] = [
-				'id' => $discussion['discussionId'],
-				'content' => $post->data->attributes->content,
-				'tags' => $discussion['tags'],
-			];
+			$cachedRecords = $newRecords;
 		}
 		
-		return $posts;
+		file_put_contents($this::CACHEFILE, json_encode($cachedRecords));
 	}
 
-	private function getDiscussions(): array
+	private function fetchRecords(bool $fetchAll = false): void
     {
-		$fields = ['firstPost', 'tags'];
-        $filter = 'tag:record';
-
-		$discussions = [];
+		$fields = ['lastPostedAt', 'firstPost', 'tags'];
+		$filter = 'tag:record';
+		
+		$records = [];
 
 		$response = $this->client->call('Discussion')->getAll($fields, $filter);
 
@@ -128,13 +73,55 @@ class CacheHandler extends Exception
 				$tags[] = $tag->id;
 			}
 
-			$discussions[] = [
-				'discussionId' => $discussion->id,
+			$records[] = [
+				'id' => $discussion->id,
+				'updated' => date('U', strtotime($discussion->attributes->lastPostedAt)),
 				'postId' => $discussion->relationships->firstPost->data->id,
 				'tags' => $tags,
 			];
 		}
 
-		return $discussions;
+		if ($fetchAll === true) {
+			$this->writeCache($this->fetchAllRecords($records), false);
+		} else {
+			$this->writeCache($this->updateNewRecords($records));
+		}
+	}
+
+	private function updateNewRecords(array $records): array
+	{
+		$newRecords = [];
+
+		foreach ($records as $record) {
+			if ($record['updated'] > filemtime($this::CACHEFILE)) {
+				$record['content'] = $this->fetchUpdatedRecord($record['postId']);
+				$newRecord = new Record($record);
+				$newRecords[] = $newRecord->getProperties();
+			}
+		}
+
+		return $newRecords;
+	}
+
+	private function fetchAllRecords(array $records): array
+	{
+		$newRecords = [];
+
+		foreach ($records as $record) {
+			$record['content'] = $this->fetchUpdatedRecord($record['postId']);
+			$newRecord = new Record($record);
+			$newRecords[] = $newRecord->getProperties();
+		}
+
+		return $newRecords;
+	}
+
+	private function fetchUpdatedRecord(int $id): string
+	{
+		$fields = ['content'];
+			
+		$record = $this->client->call('Post')->get($id, $fields);
+		
+		return $record->data->attributes->content;
 	}
 }
