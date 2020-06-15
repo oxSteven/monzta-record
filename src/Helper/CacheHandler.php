@@ -60,7 +60,7 @@ class CacheHandler extends Exception
 	private function fetchRecords(bool $fetchAll = false): void
     {
 		$fields = ['lastPostedAt', 'firstPost', 'tags'];
-		$filter = 'tag:record';
+		$filter = 'tag:record -tag:anno -tag:rule';
 		
 		$records = [];
 

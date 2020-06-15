@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.2] - 2020-06-15
+### Fixed
+- `CacheHandler` excluded tags *anno* and *rule*.
+
 ## [2.0.1] - 2020-06-15
 ### Removed
 - `callCacheVerification.js` no more part of caching mechanism.
