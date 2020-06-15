@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.1] - 2020-06-15
+### Removed
+- `callCacheVerification.js` no more part of caching mechanism.
+- `head.tpl` AJAX call from old caching mechanism.
+
 ## [2.0.0] - 2020-06-15
 ### Changed
 - `RecordListController` cache call (method name).
