@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2020-06-15
+### Changed
+- `RecordListController` cache call (method name).
+- `CacheHandler` complete refactoring of caching mechanism.
+- Textual improvements.
+
+### Removed
+- `CacheUpdateCaller` no more part of caching mechanism.
+
 ## [1.0.4] - 2020-06-01
 ### Changed
 - `filter.json` filter configuration.
