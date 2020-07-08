@@ -7,13 +7,13 @@
         </nav>
         <nav>
             <h2>Network</h2>
-            <a href='http://market.monzta.net' title='MONZTAmarket'>MONZTAmarket</a>
-            <a href='http://record.monzta.net' title='MONZTArecord'>MONZTArecord</a>
+            <a href='https://market.monzta.net' title='MONZTAmarket'>MONZTAmarket</a>
+            <a href='https://record.monzta.net' title='MONZTArecord'>MONZTArecord</a>
             <a href='http://guide.monzta.net' title='MONZTAguide'>MONZTAguide</a>
         </nav>
         <nav>
             <h2>Tools</h2>
-            <a>Coming soon</a>
+            <a href='https://convyi.kiryi.net' title='CONVYI Guild Siege Log Converter'>CONVYI</a>
         </nav>
     </section>
     <section>
