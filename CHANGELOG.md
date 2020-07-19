@@ -6,9 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.4] - 2020-07-19
+### Fixed
+- `CacheHandler` always empty result due to a bug in tag gambit negation.
+
 ## [2.0.3] - 2020-07-08
-### Changed
-- `footer.tpl` Added *CONVYI* to *Tools*.
+### Added
+- `footer.tpl` new service *CONVYI* to *Tools*.
 
 ## [2.0.2] - 2020-06-15
 ### Fixed
